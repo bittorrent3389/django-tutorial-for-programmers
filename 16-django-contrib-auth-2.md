@@ -30,7 +30,7 @@ python manage.py migrate stores
 
 去 admin 看看，store 應該都多了一個 Owner 欄位可以選。
 
-但如果你現在去 `/store/create/` 頁面新增店家，會看到一個錯誤頁面。這是因為我們剛剛新增的 `owner` 欄位不能是空白，但我們並沒有告訴 Django 要怎麼處理。所以我們必須修改 view，在適當時候填入目前的使用者。打開 `stores/views.py`，在 `store_create` 中找到這段：（注意 `store_update` 也有一樣的，不要改錯啊！）
+但如果你現在去 `/store/new/` 頁面新增店家，會看到一個錯誤頁面。這是因為我們剛剛新增的 `owner` 欄位不能是空白，但我們並沒有告訴 Django 要怎麼處理。所以我們必須修改 view，在適當時候填入目前的使用者。打開 `stores/views.py`，在 `store_create` 中找到這段：（注意 `store_update` 也有一樣的，不要改錯啊！）
 
 ```python
 if form.is_valid():
